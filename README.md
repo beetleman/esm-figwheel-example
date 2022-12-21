@@ -1,6 +1,7 @@
 # esm-figwheel-example.core
 
 To create a production build run:
+
 	npm install
 	lein clean
 	lein fig:min
