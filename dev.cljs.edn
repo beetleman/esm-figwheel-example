@@ -1,5 +1,12 @@
-^{:watch-dirs ["test" "src"]
-  :css-dirs ["resources/public/css"]
-  :auto-testing true
-  :auto-bundle :webpack }
-{:main esm-figwheel-example.core}
+^{:watch-dirs   ["test" "src"]
+  :css-dirs     ["resources/public/css"]
+  :auto-testing true}
+{:main       esm-figwheel-example.core
+ :target     :bundle
+ :bundle-cmd {:none    [:npx-cmd "esbuild" "main_bundle=resources/public/cljs-out/dev/main.js"
+                        "--format=esm" "--bundle"
+                        "--outdir=resources/public/cljs-out/dev"]
+              :default [:npx-cmd "esbuild" "main_bundle=resources/public/cljs-out/dev/main.js"
+                        "--format=esm" "--bundle"
+                        "--outdir=resources/public/cljs-out/dev"
+                         "--minify"]}}

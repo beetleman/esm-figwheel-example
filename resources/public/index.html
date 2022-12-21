@@ -9,6 +9,11 @@
   <body>
     <div id="app">
     </div> <!-- end of app div -->
-    <script src="cljs-out/dev/main_bundle.js" type="text/javascript"></script>
+    <script type="module">
+      import main from  "./cljs-out/dev/main_bundle.js";
+      console.log("JS: Starting CLJS app...")
+      main.start();
+      console.log("JS: done.")
+    </script>
   </body>
 </html>

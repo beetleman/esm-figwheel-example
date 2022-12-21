@@ -24,11 +24,14 @@
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
-    (mount el)))
+    (println "CLJS: Mounting reagent app..")
+    (mount el)
+    (println "CLJS: done.")))
 
 ;; conditionally start your application based on the presence of an "app" element
 ;; this is particularly helpful for testing this ns without launching the app
-(mount-app-element)
+(defn ^{:export "start"} start []
+  (mount-app-element))
 
 ;; specify reload hook with ^:after-load metadata
 (defn ^:after-load on-reload []
